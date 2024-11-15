@@ -26,8 +26,8 @@ app.use(cors({
 
 const PORT = process.env.PORT || 3000;
 
-app.use("/api/user", userRouter);
-app.use("/api/product", carRouter);
+app.use("https://car-management-api-nine.vercel.app/api/user", userRouter);
+app.use("https://car-management-api-nine.vercel.app/api/product", carRouter);
 
 app.listen(`${PORT}`, () => {
   connectDB();
