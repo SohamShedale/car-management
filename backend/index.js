@@ -14,9 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "https://car-management-frontend-two.vercel.app",
+  origin: 'https://car-management-frontend-two.vercel.app',
   credentials: true,
-  methods: ["POST", "GET", "PUT", "DELETE"]
+  methods: ['POST', 'GET', 'PUT','DELETE']
 };
 
 app.use(cors(corsOptions));
