@@ -4,20 +4,9 @@ import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
   try {
-    res.setHeader("Access-Control-Allow-Credentials", true);
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    // another common pattern
-    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-    );
     const { fullName, email, contact, password } = req.body;
     if (!fullName || !email || !password || !contact) {
+      res.setHeader("Access-Control-Allow-Credentials", true);
       return res.status(400).json({
         message: "Fill all the details",
         success: false,
@@ -26,6 +15,7 @@ export const register = async (req, res) => {
     
     const user = await User.findOne({ email });
     if (user) {
+      res.setHeader("Access-Control-Allow-Credentials", true);
       return res.status(400).json({
         message: "User already exist",
         success: false,
@@ -39,12 +29,14 @@ export const register = async (req, res) => {
       });
     });
 
+    res.setHeader("Access-Control-Allow-Credentials", true);
     return res.status(200).json({
       message: "Account Created",
       success: true,
     });
   } 
   catch (error) {
+    res.setHeader("Access-Control-Allow-Credentials", true);
     return res.status(500).json({
       message: error.message,
       success: false,
