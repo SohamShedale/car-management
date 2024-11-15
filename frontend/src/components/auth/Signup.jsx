@@ -33,6 +33,7 @@ const Signup = () => {
       const res = await axios.post(`${USER_API_END_POINT}/register`, userData, {
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
         withCredentials: true,
       });
