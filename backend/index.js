@@ -13,13 +13,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const corsOptions = {
-  origin: ['https://car-management-frontend-two.vercel.app'],
-  methods: ['POST', 'GET', 'PUT','DELETE'],
-  // credentials: true,
-};
+// const corsOptions = {
+//   origin: "https://car-management-frontend-two.vercel.app",
+//   methods: ["POST", "GET", "PUT", "DELETE"],
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://car-management-frontend-two.vercel.app',
+  credentials: true,
+}));
 
 const PORT = process.env.PORT || 3000;
 
