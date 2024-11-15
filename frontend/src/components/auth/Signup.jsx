@@ -51,6 +51,7 @@ const Signup = () => {
         navigate("/login");
       }
     } catch (error) {
+      console.log(error);
       toast({
         variant: "destructive",
         description: error.response.data.message,
