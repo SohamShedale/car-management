@@ -15,8 +15,8 @@ app.use(cookieParser());
 
 const corsOptions = {
   origin: ['https://car-management-frontend-two.vercel.app'],
+  methods: ['POST', 'GET', 'PUT','DELETE'],
   credentials: true,
-  methods: ['POST', 'GET', 'PUT','DELETE']
 };
 
 app.use(cors(corsOptions));
