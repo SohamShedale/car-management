@@ -13,12 +13,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// const corsOptions = {
-//   origin: "https://car-management-frontend-two.vercel.app",
-//   methods: ["POST", "GET", "PUT", "DELETE"],
-//   credentials: true,
-// };
-
 app.use(cors({
   origin: 'https://car-management-frontend-two.vercel.app',
   credentials: true,
@@ -26,8 +20,8 @@ app.use(cors({
 
 const PORT = process.env.PORT || 3000;
 
-app.use("https://car-management-api-nine.vercel.app/api/user", userRouter);
-app.use("https://car-management-api-nine.vercel.app/api/product", carRouter);
+app.use("/api/user", userRouter);
+app.use("/api/product", carRouter);
 
 app.listen(`${PORT}`, () => {
   connectDB();
