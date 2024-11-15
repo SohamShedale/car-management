@@ -4,6 +4,12 @@ import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
   try {
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "https://car-management-frontend-two.vercel.app"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     const { fullName, email, contact, password } = req.body;
     if (!fullName || !email || !password || !contact) {
       return res.status(400).json({
@@ -31,7 +37,8 @@ export const register = async (req, res) => {
       message: "Account Created",
       success: true,
     });
-  } catch (error) {
+  } 
+  catch (error) {
     return res.status(500).json({
       message: error.message,
       success: false,
