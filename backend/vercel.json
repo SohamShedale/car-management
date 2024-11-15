@@ -4,8 +4,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/",
-      "command": "npm start"
+      "dest": "/index.js"
     }
   ]
 }
